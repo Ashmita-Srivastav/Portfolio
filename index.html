@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Horizontal Portfolio</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
   <div class="sidebar">
-    <a href="#about" title="About"><i class="fas fa-user"></i> <span class="tooltiptext">About</span></a>
-    <a href="#skills" title="Skills"><i class="fas fa-lightbulb"></i> <span class="tooltiptext">Skills</span></a>
-    <a href="#projects" title="Projects"><i class="fas fa-file-alt"></i> <span class="tooltiptext">Projects</span></a>
-    <a href="#contact" title="Contact"><i class="fas fa-phone"></i> <span class="tooltiptext">Contact me</span></a>
+    <a href="#about"><i class="fas fa-user"></i><span class="tooltiptext">About</span></a>
+    <a href="#skills"><i class="fas fa-lightbulb"></i><span class="tooltiptext">Skills</span></a>
+    <a href="#projects"><i class="fas fa-file-alt"></i><span class="tooltiptext">Projects</span></a>
+    <a href="#contact"><i class="fas fa-phone"></i><span class="tooltiptext">Contact</span></a>
   </div>
-  
+
   <div class="main-container">
-    <section id="about">
-      <h1><u><b>ASHMITA SRIVASTAVA</b></u></h1><br>
-      <h2>About</h2>
+    <section id="about" class="visible">
+      <h1 ><u><b>ASHMITA SRIVASTAVA</b></u></h1><br>
       <div class="about-content">
         <div class="text-content">
+          <span id="change">Web developer</span>
+          <br><br>
           <p>
             A passionate full-stack web developer who loves turning ideas into interactive, real-world web experiences.
             With a strong foundation in both frontend and backend technologies, I enjoy building scalable, user-friendly web applications.
@@ -60,7 +62,15 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="projects-grid">
-        <a href="#" class="project-card">
+        <a href="https://github.com/Ashmita-Srivastav/campusfeed.git" class="project-card">
+          <img src="./components/projects/cf.jpg" alt="CampusFeed">
+          <h3>📰 CampusFeed</h3>
+          <p>Get all KIIT University Event Notifications and Feed in one place</p>
+          <div class="tech-stack">
+            <span>Next.js</span><span>Tailwind</span><span>PostgreSql</span><span>Prisma</span><span>HyGraph</span>
+          </div>
+        </a>
+        <a href="https://github.com/Ashmita-Srivastav/Reaction-Time-Game.git" class="project-card">
           <img src="./components/projects/RTG.png" alt="Reaction Timer">
           <h3>⏱️ Reaction Timer</h3>
           <p>Measure your reflex speed!</p>
@@ -68,7 +78,7 @@
             <span>JavaScript</span><span>React</span><span>Tailwind</span><span>Prisma</span>
           </div>
         </a>
-        <a href="#" class="project-card">
+        <a href="https://github.com/Ashmita-Srivastav/Currency-Convertor.git" class="project-card">
           <img src="./components/projects/curr.png" alt="Currency Converter">
           <h3>💱 Currency Converter</h3>
           <p>Convert currencies using live data.</p>
@@ -76,12 +86,20 @@
             <span>HTML</span><span>CSS</span><span>JavaScript</span>
           </div>
         </a>
-        <a href="#" class="project-card">
+        <a href="https://github.com/Ashmita-Srivastav/Mini-Games.git" class="project-card">
           <img src="./components/projects/mini.jpeg" alt="Mini Games">
           <h3>Mini Games</h3>
           <p>Mini Games, Maximum Fun!</p>
           <div class="tech-stack">
             <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </a>
+         <a href="https://github.com/Ashmita-Srivastav/to-do-list.git" class="project-card">
+          <img src="./components/projects/do.jpg" alt="to-do list">
+          <h3>🗓️ DailyDo</h3>
+          <p>A sleek way to manage your day.</p>
+          <div class="tech-stack">
+            <span>React</span>
           </div>
         </a>
         <a href="#" class="project-card">
@@ -102,9 +120,9 @@
         </a>
       </div>
     </section>
-    
-    <section id="contact" class="section">
-      <h2> Wanna Connect?</h2>
+
+    <section id="contact">
+      <h3 class="rotate" > Wanna Connect?</h2>
       <p>If you have any questions, opportunities or just want to chat, please feel free to contact me!</p>
         <div class="contact-container">
           <form action="https://formsubmit.co/ashmitasr31@gmail.com" method="POST" class="contact-form">
@@ -122,7 +140,10 @@
       </div>
     </section>
   </div>
+     
+
   <script src="app.js"></script>
-  
+
+
 </body>
 </html>
