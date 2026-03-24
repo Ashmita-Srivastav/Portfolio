@@ -4,139 +4,232 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
-  <div class="sidebar">
-    <a href="#about"><i class="fas fa-user"></i><span class="tooltiptext">About</span></a>
-    <a href="#skills"><i class="fas fa-lightbulb"></i><span class="tooltiptext">Skills</span></a>
-    <a href="#projects"><i class="fas fa-file-alt"></i><span class="tooltiptext">Projects</span></a>
-    <a href="#contact"><i class="fas fa-phone"></i><span class="tooltiptext">Contact</span></a>
+   <div class="floating-icons"></div>
+    <div class="bg-gradient-animate">
+    <div class="blob"></div>
+    <div class="blob" style="right: 10%; top: 20%; background: var(--accent); animation-delay: -5s;"></div>
   </div>
+  <nav class="sidebar">
+    <a href="#about" class="nav-link active" data-section="about"><i class="fas fa-user"></i></a>
+    <a href="#skills" class="nav-link" data-section="skills"><i class="fas fa-lightbulb"></i></a>
+    <a href="#projects" class="nav-link" data-section="projects"><i class="fas fa-file-alt"></i></a>
+    <a href="#experience" class="nav-link" data-section="experience"><i class="fas fa-briefcase"></i></a>
+    <a href="#contact" class="nav-link" data-section="contact"><i class="fas fa-paper-plane"></i></a>
+  </nav>
 
-  <div class="main-container">
-    <section id="about" class="visible">
-      <h1 ><u><b>ASHMITA SRIVASTAVA</b></u></h1><br>
-      <div class="about-content">
-        <div class="text-content">
-          <span id="change">Web developer</span>
-          <br><br>
-          <p>
-            A passionate full-stack web developer who loves turning ideas into interactive, real-world web experiences.
-            With a strong foundation in both frontend and backend technologies, I enjoy building scalable, user-friendly web applications.
+  <div class="main-wrapper">
+    <section id="about">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h1 class="text-5xl md:text-7xl font-bold leading-tight mt-10">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#00f2fe] to-[#f093fb]">Ashmita Srivastava</span>
+          </h1>
+          <div class="about-content">
+            <div class="text-xl md:text-3xl font-medium text-slate-400">
+              I am a <span id="change" class="text-white border-r-2 border-primary pr-2">Full Stack Developer</span>
+            </div>
+          </div>
+          <p class="text-lg text-slate-400 max-w-xl leading-relaxed">
+            A passionate Computer Science Engineer who loves turning ideas into interactive, real-world experiences and user-centric digital solutions.
+            With a strong foundation in Web development, Machine learning and Cloud technologies, I enjoy building scalable web architectures to predictive ML models to turn complex problems into elegant code.
             I’m always exploring new tech and finding smarter ways to solve problems with clean, efficient code.
           </p>
+          <div class="flex gap-4 pt-4">
+            <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-blue-600 font-bold rounded-xl transition-transform hover:text-white hover:scale-105 active:scale-95">
+              Hire Me
+            </a>
+            <a href="https://github.com/Ashmita-Srivastav" target="_blank" class="px-8 py-3 border border-glass-border hover:bg-white/5 font-bold rounded-xl transition-colors">
+              View Github
+            </a>
+          </div>
         </div>
-        <img class="image" src="./components/pic.jpeg" alt="Profile Image">
+        <div class="relative">
+          <div class="glass-card p-4 relative group overflow-hidden align-right">
+            <img src="./components/p1.jpeg" alt="Profile" loading="lazy" class="rounded-2xl w-[500px] h-[300px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700">
+          </div>
+        </div>
+        <!--<img class="image" src="./components/pic.jpeg" alt="Profile Image">-->
       </div>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
-      <h3 style="margin-bottom: 1rem;">Languages</h3>
-      <div class="skills-grid">
-        <div class="skill"><img src="./components/skills/c.png"><p class="skill-name">C</p></div>
-        <div class="skill"><img src="./components/skills/cpp.png"><p class="skill-name">C++</p></div>
-        <div class="skill"><img src="./components/skills/java.webp"><p class="skill-name">Java</p></div>
-        <div class="skill"><img src="./components/skills/Python.png"><p class="skill-name">Python</p></div>
-      </div>
-      <h3 style="margin-bottom: 1rem;">Development</h3>
-      <div class="skills-grid">
-        <div class="skill"><img src="./components/skills/js.webp"><p class="skill-name">JavaScript</p></div>
-        <div class="skill"><img src="./components/skills/react.png"><p class="skill-name">React</p></div>
-        <div class="skill"><img src="./components/skills/nextjs.png"><p class="skill-name">Next.js</p></div>
-        <div class="skill"><img src="./components/skills/tailwinf.png"><p class="skill-name">Tailwind</p></div>
-        <div class="skill"><img src="./components/skills/sql.jpg"><p class="skill-name">SQL</p></div>
-      </div>
-      <h3 style="margin-bottom: 1rem;">Other</h3>
-      <div class="skills-grid">
-        <div class="skill"><img src="./components/skills/AWS.png"><p class="skill-name">AWS Data Engineering</p></div>
-        <div class="skill"><img src="./components/skills/git.png"><p class="skill-name">Git/Github</p></div>
-        <div class="skill"><img src="./components/skills/canva.webp"><p class="skill-name">Canva</p></div>
-        <div class="skill"><img src="./components/skills/figma.png"><p class="skill-name">Figma</p></div>
+      <div class="skills-container">
+        <div class="skills-heading">
+          <h2 class="text-4xl font-bold mb-4">
+            Technical <span class="text-primary">Skills</span>
+          </h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="glass-card p-6 text-center">
+            <i class="fas fa-code text-3xl text-primary mb-4"></i>
+            <h3 class="font-bold mb-4">Languages</h3>
+            <p class="text-xs text-slate-400">C, C++, Python, Java</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <i class="fas fa-brain text-3xl text-accent mb-4"></i>
+            <h3 class="font-bold mb-4">Machine Learning</h3>
+            <p class="text-xs text-slate-400">Computer Vision, CNN architectures, TensorFlow, OpenCV, XGBoost</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <i class="fas fa-layer-group text-3xl text-secondary mb-4"></i>
+            <h3 class="font-bold mb-4">Development</h3>
+            <p class="text-xs text-slate-400">HTML, CSS, JavaScript/TypeScript, React, Next.js, Node.js,Express.js, SQL, PostgreSQL, MongoDB</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <i class="fas fa-cloud text-3xl text-primary mb-4"></i>
+            <h3 class="font-bold mb-4">Cloud & Tools</h3>
+            <p class="text-xs text-slate-400">AWS Cloud, Linux(Ubuntu), Git, Zoho, Figma, Canva</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <a href="https://github.com/Ashmita-Srivastav/campusfeed.git" class="project-card">
-          <img src="./components/projects/cf.jpg" alt="CampusFeed">
-          <h3>📰 CampusFeed</h3>
-          <p>Get all KIIT University Event Notifications and Feed in one place</p>
-          <div class="tech-stack">
-            <span>Next.js</span><span>Tailwind</span><span>PostgreSql</span><span>Prisma</span><span>HyGraph</span>
+      <h2 class="text-4xl font-bold mb-10 text-center mt-10">
+        My <span class="text-primary">Projects</span>
+      </h2>
+      <div class="project-grid">
+        <div class="glass-card p-5 group">
+          <div class="rounded-xl overflow-hidden mb-4 h-48 bg-slate-800">
+            <img src="https://static.gptstore.ai/gptLogo/gpt-g-eulw4kDPo.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
           </div>
-        </a>
-        <a href="https://github.com/Ashmita-Srivastav/Reaction-Time-Game.git" class="project-card">
-          <img src="./components/projects/RTG.png" alt="Reaction Timer">
-          <h3>⏱️ Reaction Timer</h3>
-          <p>Measure your reflex speed!</p>
-          <div class="tech-stack">
-            <span>JavaScript</span><span>React</span><span>Tailwind</span><span>Prisma</span>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-lg">AI Outfit Stylist</h3>
+            <span class="text-[10px] bg-accent/20 text-accent px-2 py-1 rounded">CV + ML</span>
           </div>
-        </a>
-        <a href="https://github.com/Ashmita-Srivastav/Currency-Convertor.git" class="project-card">
-          <img src="./components/projects/curr.png" alt="Currency Converter">
-          <h3>💱 Currency Converter</h3>
-          <p>Convert currencies using live data.</p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          <p class="text-sm text-slate-400 mb-4">Custom Neural Network using MoveNet for style prediction and real-time suggestions.</p>
+          <div class="flex gap-2">
+            <span class="text-[10px] font-mono border border-glass-border px-2 py-1">MoveNet</span>
+            <span class="text-[10px] font-mono border border-glass-border px-2 py-1">Computer Vision</span>
           </div>
-        </a>
-        <a href="https://github.com/Ashmita-Srivastav/Mini-Games.git" class="project-card">
-          <img src="./components/projects/mini.jpeg" alt="Mini Games">
-          <h3>Mini Games</h3>
-          <p>Mini Games, Maximum Fun!</p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <div class="glass-card p-5 group">
+          <div class="rounded-xl overflow-hidden mb-4 h-36 bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
           </div>
-        </a>
-         <a href="https://github.com/Ashmita-Srivastav/to-do-list.git" class="project-card">
-          <img src="./components/projects/do.jpg" alt="to-do list">
-          <h3>🗓️ DailyDo</h3>
-          <p>A sleek way to manage your day.</p>
-          <div class="tech-stack">
-            <span>React</span>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-lg">KwickSwap</h3>
+            <span class="text-[10px] bg-secondary/20 text-secondary px-2 py-1 rounded">Full Stack</span>
+         </div>
+          <p class="text-sm text-slate-400 mb-4">Scalable KIIT academic swap platform with PostgreSQL and dual-factor auth.</p>
+          <div class="flex gap-2">
+            <span class="text-[10px] font-mono border border-glass-border px-2 py-1">PostgreSQL</span>
+            <span class="text-[10px] font-mono border border-glass-border px-2 py-1">Next.js</span>
           </div>
-        </a>
-        <a href="https://github.com/Ashmita-Srivastav/Snake-Game.git" class="project-card">
-          <img src="./components/projects/snake.png" alt="Snake Game">
-          <h3>🐍 Snake Game</h3>
-          <p>Play and beat your own score!</p>
-          <div class="tech-stack">
-            <span>C++</span>
+        </div>
+        <div class="glass-card p-5 group">
+          <div class="rounded-xl overflow-hidden mb-4 h-36 bg-slate-800">
+            <img src="./components/projects/cf.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
           </div>
-        </a>
-        <a href="#" class="project-card">
-          <img src="./components/projects/health.webp" alt="Health Predictor">
-          <h3>🩺 Health Predictor</h3>
-          <p>Predict heart/diabetes risk with ML.</p>
-          <div class="tech-stack">
-            <span>Python</span><span>Sklearn</span>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-lg">CampusFeed</h3>
+            <span class="text-[10px] bg-accent/20 text-accent px-2 py-1 rounded">CV + ML</span>
           </div>
-        </a>
+          <p class="text-sm text-slate-400 mb-4">Get all KIIT University Event Notifications and Feed in one place</p>
+          <div class="flex gap-2">
+            <span class="text-[10px] font-mono border border-glass-border px-2 py-1">HyGraph</span>
+            <span class="text-[10px] font-mono border border-glass-border px-2 py-1">Next.js</span>
+          </div>
+        </div>
+        <div class="glass-card p-5 group">
+          <a href="https://github.com/Ashmita-Srivastav/campusfeed.git">
+            <div class="rounded-xl overflow-hidden mb-4 h-36 bg-slate-800">
+              <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2023/06/Crop-Yield-Prediction-Using-Machine-Learning-And-Flask-Deployment.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+            </div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-lg">Crop Yield Predictor</h3>
+              <span class="text-[10px] bg-primary/20 text-primary px-2 py-1 rounded">Edge AI</span>
+            </div>
+            <p class="text-sm text-slate-400 mb-4">XGBoost model optimized with TF.js for fast, client-side agricultural predictions.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-mono border border-glass-border px-2 py-1">XGBoost</span>
+              <span class="text-[10px] font-mono border border-glass-border px-2 py-1">TF.js</span>
+            </div>
+          </a>
+        </div>
+        <div class="glass-card p-5 group">
+          <a href="https://github.com/Ashmita-Srivastav/Mini-Games.git">
+            <div class="rounded-xl overflow-hidden mb-4 h-36 bg-slate-800">
+              <img src="./components/projects/mini.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+            </div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-lg">Mini Games</h3>
+              <span class="text-[10px] bg-primary/20 text-primary px-2 py-1 rounded">Edge AI</span>
+            </div>
+            <p class="text-sm text-slate-400 mb-4">Mini Games, Maximum Fun!</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-mono border border-glass-border px-2 py-1">HTML</span>
+              <span class="text-[10px] font-mono border border-glass-border px-2 py-1">CSS</span>
+              <span class="text-[10px] font-mono border border-glass-border px-2 py-1">JavaScript</span>
+            </div>
+          </a>
+        </div>        
       </div>
     </section>
+    <!-- Experience Section -->
+        <section id="experience">
+          <div class="section-container">
+            <h2 class="text-4xl font-bold mb-12 text-center">Professional <span class="text-primary">Journey</span></h2>
+            <div class="expenrience-list">
+              <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/4">
+                  <h3 class="text-xl font-bold text-primary">Abhyaz</h3>
+                  <p class="text-xs text-slate-500 font-bold uppercase">May 2025 - Aug 2025</p>
+                </div>
+                <div class="md:w-3/4">
+                  <p class="text-slate-400 text-sm">Developed and improved web features using Zoho products for managing application workflows and integration.</p>
+                </div>
+              </div>
+              <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/4">
+                  <h3 class="text-xl font-bold text-primary">PrepStat</h3>
+                  <p class="text-xs text-slate-500 font-bold uppercase">May 2025 - July 2025</p>
+                </div>
+                <div class="md:w-3/4">
+                  <p class="text-slate-400 text-sm">Mastered full-stack technologies and SDLC methodologies, delivering production-ready web applications from design to deployment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
     <section id="contact">
-      <h3 class="rotate" > Connect with me</h2>
-      <p>If you have any questions or opportunities, please feel free to contact me!</p>
-        <div class="contact-container">
-          <form action="https://formsubmit.co/ashmitasr31@gmail.com" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-          </form>
-        <div class="social-icons">
-          <a href="https://github.com/Ashmita-Srivastav" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/ashmita-srivastava-1855082ab/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://leetcode.com/u/ashmitasr31/" target="_blank"><i class="fas fa-code"></i></a>
+      <div class="contact-container mr-55">
+        <h3 class="rotate text-4xl font-bold mb-2 mr-20 mt-15">Connect with me</h3>
+        <p class="text-slate-400 mb-5 mr-20">If you have any questions or opportunities, please feel free to contact me!</p> 
+        <div class="contact-grid">
+          <!-- Form Container -->
+          <div class="glass-card p-6">
+            <form action="https://formsubmit.co/ashmitasr31@gmail.com" method="POST" class="contact-form">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Your Email" required />
+              <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
+     <!-- Social and Info -->
+      <div class="flex flex-col gap-3 justify-center h-50% items-center">
+        <div class="glass-card w-80 p-2 flex flex-col items-center gap-2 mr-20">
+          <p class="font-bold uppercase tracking-widest text-xs text-slate-500">Social Channels</p>
+          <div class="social-icons">
+            <a href="https://github.com/Ashmita-Srivastav" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ashmita-srivastava-1855082ab/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://leetcode.com/u/ashmitasr31/" target="_blank"><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+      
     </section>
   </div>
      

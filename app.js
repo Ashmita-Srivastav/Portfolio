@@ -1,55 +1,121 @@
-  const sections = document.querySelectorAll("section");
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 1,
-  };
- const words = ["Full Stack Developer","Computer Science Engineer","Coder","Tech Enthusiast"];
-  let index = 0;
+// ============================
+// Typing Effect (fixed)
+// ============================
+const icons = ["💻", "⚙️", "🚀", "🧠", "📱", "🌐", "🖥️", "💡"];
 
-  const span = document.getElementById("change");
+const container = document.querySelector(".floating-icons");
 
-  setInterval(() => {
-    span.classList.add("fade-out");
-    
+for (let i = 0; i < 20; i++) {
+    const span = document.createElement("span");
+
+    span.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+    span.style.top = Math.random() * 100 + "%";
+    span.style.left = Math.random() * 100 + "%";
+
+    span.style.animationDuration = (10 + Math.random() * 20) + "s";
+    span.style.fontSize = (1.5 + Math.random() * 2) + "rem";
+
+    container.appendChild(span);
+}
+const words = [
+    "Full Stack Developer",
+    "Machine Learning Enthusiast",
+    "Computer Science Engineer",
+    "Coder",
+    "Tech Enthusiast"
+];
+
+let wordIdx = 0;
+let charIdx = 0;
+let isDeleting = false;
+
+const target = document.getElementById("change");
+
+function type() {
+    const current = words[wordIdx];
+
+    charIdx += isDeleting ? -1 : 1;
+    target.textContent = current.substring(0, charIdx);
+
+    let speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIdx === current.length) {
+        speed = 1500;
+        isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        wordIdx = (wordIdx + 1) % words.length;
+        speed = 500;
+    }
+
+    setTimeout(type, speed);
+}
+
+window.addEventListener("load", type);
+
+
+// ============================
+// Horizontal Scroll Logic
+// ============================
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+const mainWrapper = document.querySelector(".main-wrapper");
+let currentIndex = 0;
+let isScrolling = false;
+navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = link.dataset.section;
+
+        const index = Array.from(sections).findIndex(
+            section => section.id === targetId
+        );
+
+        if (index !== -1) {
+            goToSection(index);
+        }
+    });
+});
+
+// Smooth navigation
+const goToSection = (index) => {
+    if (isScrolling) return;
+    isScrolling = true;
+
+    currentIndex = Math.max(0, Math.min(index, sections.length - 1));
+
+    mainWrapper.style.transform = `translateX(-${currentIndex * 100}vw)`;
+
+    updateActiveLink(); // 🔥 update UI
+
     setTimeout(() => {
-      index = (index + 1) % words.length;
-      span.textContent = words[index];
-      span.classList.remove("fade-out");
-      span.classList.add("fade-in");
-    }, 300);
-  }, 2000);
+        isScrolling = false;
+    }, 800);
+};
 
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const heading = entry.target.querySelector("h3");
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+const updateActiveLink = () => {
+    navLinks.forEach(link => link.classList.remove("active"));
 
-        if (entry.target.id === "contact" && heading) {
-          heading.classList.add("rotate");
-        }
-      } else {
-        if (entry.target.id === "contact" && heading) {
-          heading.classList.remove("rotate");
-        }
-      }
-    });
-  }, observerOptions);
+    const activeSection = sections[currentIndex].id;
 
-  sections.forEach(section => {
-    sectionObserver.observe(section);
-  });
+    const activeLink = document.querySelector(
+        `.nav-link[data-section="${activeSection}"]`
+    );
 
-  document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-      }
-      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
+    if (activeLink) activeLink.classList.add("active");
+};
+window.addEventListener("load", () => {
+    const hash = window.location.hash.replace("#", "");
+
+    const index = Array.from(sections).findIndex(
+        section => section.id === hash
+    );
+
+    if (index !== -1) {
+        goToSection(index);
+    } else {
+        updateActiveLink();
+    }
+});
